@@ -1,0 +1,22 @@
+.news__details {
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+
+    & summary {
+        padding-block: 1rem;
+        padding-inline: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        list-style: none;
+        align-items: center;
+        
+        & svg {
+            transition: transform 0.3s ease;
+        }
+    }
+
+    &[open] summary svg {
+        transform: rotate(90deg);
+    }
+}

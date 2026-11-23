@@ -7,7 +7,7 @@ export default function Header() {
         <>
             <header className="header">
                 <Link to="/">
-                    <LogoText divClass={"header__logotext"} />
+                    <LogoText level={"1"} text={"Newsify"} divClass={"header__logotext"} />
                 </Link>
                 <form className="header__search">
                     <input type="text" placeholder="Search news" />
