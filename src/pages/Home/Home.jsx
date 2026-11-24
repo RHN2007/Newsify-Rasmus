@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './Home.scss'
-import Header from "../Components/Header/Header";
-import NewsCatagory from "../Components/NewsCatagory/NewsCatagory";
+import Header from "../../Components/Header/Header";
+import NewsCatagory from "../../Components/NewsCatagory/NewsCatagory";
 // import useFetchData from "../hooks/useFetchData";
 
 export default function Home ({selectedCatagories}) {    

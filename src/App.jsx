@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router"
 import { useState } from "react"
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import Home from "./pages/Home"
+import Home from "./pages/Home/Home"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import NavigationBar from "./Components/NavigationBar/NavigationBar"
 
