@@ -18,7 +18,6 @@ export default function Home ({selectedCatagories}) {
                     <NewsCatagory headinglevel={index + 2} catagory={catagory} />
                 )
             })}
-            {/* <NewsCatagory headinglevel={"2"} catagory={"Hello World"} /> */}
          </main>
         </>
     )

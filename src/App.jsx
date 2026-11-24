@@ -3,6 +3,7 @@ import { useState } from "react"
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Home from "./pages/Home"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import NavigationBar from "./Components/NavigationBar/NavigationBar"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home selectedCatagories={selectedCatagories} />} />
         </Routes>
+        <NavigationBar />
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </>
