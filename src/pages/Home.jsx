@@ -4,10 +4,7 @@ import Header from "../Components/Header/Header";
 import NewsCatagory from "../Components/NewsCatagory/NewsCatagory";
 // import useFetchData from "../hooks/useFetchData";
 
-export default function Home ({selectedCatagories}) {
-
-    
-    
+export default function Home ({selectedCatagories}) {    
     
     return (
         <>
