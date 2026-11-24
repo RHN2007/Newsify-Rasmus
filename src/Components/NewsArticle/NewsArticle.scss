@@ -1,8 +1,12 @@
 .article__listitem {
+    position: relative;
     display: flex;
     padding: 1rem;
     border-top: 1px solid var(--border-color);
     max-height: 10rem;
+    overflow: hidden;
+    transition: all ease 0.3s;
+    // transform: translate(-7.5rem);
 
     &__figure {
         aspect-ratio: 1 / 1;
@@ -41,5 +45,23 @@
 .article__wrapper {
     display: flex;
     gap: 1rem;
+}
+
+.article__bookmark {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #46781B;
+    width: 7.5rem;
+    height: 100%;
+    transform: translate(100%);
+
+    & svg {
+        transform: scale(2); // man kan åbenbart ikke bruge width på svg'er så vi bruge transform til det!
+        color: white;
+    }
 }
 
