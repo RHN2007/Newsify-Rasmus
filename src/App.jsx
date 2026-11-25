@@ -17,7 +17,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<Home selectedCatagories={selectedCatagories} />} />
-          <Route path="/Settings" element={<Settings selectedCatagories={selectedCatagories} />} />
+          <Route path="/Settings" element={<Settings selectedCatagories={selectedCatagories} setSelectedCatagories={setSelectedCatagories} />} />
         </Routes>
         <NavigationBar />
         <ReactQueryDevtools initialIsOpen={false} />
