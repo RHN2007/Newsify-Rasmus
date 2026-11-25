@@ -1,5 +1,6 @@
 import CatagoryItem from "../../Components/CatagoryItem/CatagoryItem";
 import LogoLink from "../../Components/LogoLink/LogoLink";
+import './Settings.scss'
 
 export default function Settings({ selectedCatagories, setSelectedCatagories }) {
 
@@ -48,13 +49,13 @@ export default function Settings({ selectedCatagories, setSelectedCatagories }) 
 
     return (
         <>
-            <header>
+            <header className="settings__header">
                 <LogoLink />
                 <h2>Settings</h2>
                 <p>Categories</p>
             </header>
-            <main>
-                <ul>
+            <main className="settings__main">
+                <ul className="settings__main__list">
                     {catagories.map((catagory) => {
                         const alreadyExists = selectedCatagories.includes(catagory)
                         return (
