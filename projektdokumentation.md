@@ -1,8 +1,8 @@
 # Projektdokumentation
 
-**Navn:** 
+**Navn:** Rasmus Hulbæk Nielsen
 
-**Hold:** WUxx
+**Hold:** WU16
 
 **Uddannelse:** Webudvikler
 
@@ -16,9 +16,7 @@
 -   HTML
 -   CSS
 -   JavaScript
--   Webpack
--	Jest
--   ...
+-	React Framework
 
 ---
 

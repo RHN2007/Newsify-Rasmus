@@ -10,21 +10,39 @@ function App() {
 
   const queryClient = new QueryClient()
 
-  // const [selectedCatagories, setSelectedCatagories] = useState(["health", "movies", "politics"])
   const [selectedCatagories, setSelectedCatagories] = useState(JSON.parse(localStorage.getItem("selectedCatagories") || JSON.stringify(["health", "movies", "politics"])))
-
 
   useEffect(() => {
     console.log(selectedCatagories)
     localStorage.setItem("selectedCatagories", JSON.stringify(selectedCatagories))
   }, [selectedCatagories])
 
+  const [isDarkmode, setIsDarkmode] = useState(localStorage.getItem("isDarkmode") || "light")
+
+  function handleDarkmode() {
+    if (isDarkmode == "dark") {
+      document.documentElement.style.colorScheme = "light"
+      setIsDarkmode("light")
+    } else {
+      document.documentElement.style.colorScheme = "dark"
+      setIsDarkmode("dark")
+    }
+    
+  }
+
+  useEffect(() => {
+    document.documentElement.style.colorScheme = isDarkmode
+    localStorage.setItem("isDarkmode", isDarkmode)
+  }, [isDarkmode])
+
+
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<Home selectedCatagories={selectedCatagories} />} />
-          <Route path="/Settings" element={<Settings selectedCatagories={selectedCatagories} setSelectedCatagories={setSelectedCatagories} />} />
+          <Route path="/Settings" element={<Settings handleDarkmode={handleDarkmode} selectedCatagories={selectedCatagories} setSelectedCatagories={setSelectedCatagories} />} />
         </Routes>
         <NavigationBar />
         <ReactQueryDevtools initialIsOpen={false} />

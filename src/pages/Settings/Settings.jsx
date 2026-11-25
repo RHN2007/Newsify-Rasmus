@@ -2,10 +2,9 @@ import CatagoryItem from "../../Components/CatagoryItem/CatagoryItem";
 import LogoLink from "../../Components/LogoLink/LogoLink";
 import './Settings.scss'
 
-export default function Settings({ selectedCatagories, setSelectedCatagories }) {
+export default function Settings({ handleDarkmode, selectedCatagories, setSelectedCatagories }) {
 
     function handleCatagories(catagory, state) {
-        // console.log(catagory, state)
         const alreadyExists = selectedCatagories.includes(catagory)
         console.log(alreadyExists)
 
@@ -63,6 +62,9 @@ export default function Settings({ selectedCatagories, setSelectedCatagories }) 
                         )
                     })}
                 </ul>
+                <div className="settings__main__button__container">
+                    <button onClick={handleDarkmode}>Toggle dark mode</button>
+                </div>
             </main>
         </>
     )

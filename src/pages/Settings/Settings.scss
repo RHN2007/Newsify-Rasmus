@@ -36,4 +36,22 @@
         }
     }
 
-}
+    &__button__container {
+        padding: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & button {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            font-family: "Open Sans", sans-serif;
+            border: 1px solid var(--primary-green-color);
+            color: var(--primary-green-color);
+            padding: 1rem;
+            border-radius: 2rem;
+        }
+    }
+
+} 
