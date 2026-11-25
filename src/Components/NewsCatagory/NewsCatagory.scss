@@ -24,6 +24,9 @@
     }
 
     &__heading {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         font-size: 1rem;
         text-transform: uppercase;
     }

@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Home from "./pages/Home/Home"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
@@ -10,7 +10,14 @@ function App() {
 
   const queryClient = new QueryClient()
 
-  const [selectedCatagories, setSelectedCatagories] = useState(["health", "movies", "politics"])
+  // const [selectedCatagories, setSelectedCatagories] = useState(["health", "movies", "politics"])
+  const [selectedCatagories, setSelectedCatagories] = useState(JSON.parse(localStorage.getItem("selectedCatagories") || JSON.stringify(["health", "movies", "politics"])))
+
+
+  useEffect(() => {
+    console.log(selectedCatagories)
+    localStorage.setItem("selectedCatagories", JSON.stringify(selectedCatagories))
+  }, [selectedCatagories])
 
   return (
     <>

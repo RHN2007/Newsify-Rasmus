@@ -56,8 +56,9 @@ export default function Settings({ selectedCatagories, setSelectedCatagories }) 
             <main>
                 <ul>
                     {catagories.map((catagory) => {
+                        const alreadyExists = selectedCatagories.includes(catagory)
                         return (
-                            <CatagoryItem handleCatagories={handleCatagories} catagory={catagory} level={3} />
+                            <CatagoryItem alreadyExists={alreadyExists} handleCatagories={handleCatagories} catagory={catagory} level={3} />
                         )
                     })}
                 </ul>
