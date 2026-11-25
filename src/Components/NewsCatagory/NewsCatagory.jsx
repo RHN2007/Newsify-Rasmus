@@ -23,8 +23,8 @@ export default function NewsCatagory ({catagory, headinglevel}) {
                         <NewsArticle articleImage={result.multimedia[0].url} articleLink={result.url} headingLevel={headinglevel} headingText={result.title} paragraphText={result.abstract} />
                     )
                 }))
-                : 
-                ("No data yet, please wait...")}
+                :
+                (`${isPending ? ("Trying to fetch data, please wait...") : (`FAILED! ${error}`)}`)}
             </ul>
             
         </details>

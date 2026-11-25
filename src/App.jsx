@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import Home from "./pages/Home/Home"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import NavigationBar from "./Components/NavigationBar/NavigationBar"
+import Settings from "./pages/Settings/Settings"
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Routes>
           <Route path="/" element={<Home selectedCatagories={selectedCatagories} />} />
+          <Route path="/Settings" element={<Settings selectedCatagories={selectedCatagories} />} />
         </Routes>
         <NavigationBar />
         <ReactQueryDevtools initialIsOpen={false} />
