@@ -5,10 +5,12 @@ import { useRef, useState } from 'react';
 
 export default function NewsArticle({ bookmarks, setBookmarks, articleImage, articleLink, headingLevel, headingText, paragraphText }) {
     const Heading = `h${headingLevel}`
+
+    const alreadyExists = bookmarks.some(bookmark => bookmark.article_heading === headingText)
+    const [isBookmarked, setIsBookmarked] = useState(alreadyExists)
+
     const [touchStart, setTouchStart] = useState()
     const slideElement = useRef(null)
-
-    const [isBookmarked, setIsBookmarked] = useState(false)
 
     function handleTouchStart(event) {
         setTouchStart(event.changedTouches[0].clientX)
@@ -48,7 +50,6 @@ export default function NewsArticle({ bookmarks, setBookmarks, articleImage, art
             return
         }
 
-        const alreadyExists = bookmarks.some(bookmark => bookmark.article_heading === headingText)
 
         if (!alreadyExists && !isBookmarked) {
             setBookmarks([...bookmarks, newBookmark])
@@ -75,7 +76,7 @@ export default function NewsArticle({ bookmarks, setBookmarks, articleImage, art
                         </div>
                     </div>
                 </a>
-                <button onClick={handleBookmark} className='article__bookmark'>
+                <button onClick={handleBookmark} className='article__bookmark' style={{backgroundColor: !isBookmarked ? ("var(--primary-green-color)") : ("#FF5D5D")}}>
                     {!isBookmarked ? (<CiBookmark />) : (<FaRegTrashCan />)}
                 </button>
             </li>
