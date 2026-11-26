@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import NavigationBar from "./Components/NavigationBar/NavigationBar"
 import Settings from "./pages/Settings/Settings"
+import Archive from "./pages/Archive/Archive"
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home selectedCatagories={selectedCatagories} bookmarks={bookmarks} setBookmarks={setBookmarks}/>} />
           <Route path="/Settings" element={<Settings handleDarkmode={handleDarkmode} selectedCatagories={selectedCatagories} setSelectedCatagories={setSelectedCatagories} />} />
+          <Route path="/Saves" element={<Archive bookmarks={bookmarks} setBookmarks={setBookmarks}/>} />
         </Routes>
         <NavigationBar />
         <ReactQueryDevtools initialIsOpen={false} />

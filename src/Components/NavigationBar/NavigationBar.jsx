@@ -14,7 +14,7 @@ export default function NavigationBar () {
     },
     {
         "pageName": "Archive",
-        "url": "/saves",
+        "url": "/Saves",
         "icon": CiBookmark
     },
     {
