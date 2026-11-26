@@ -10,6 +10,13 @@ function App() {
 
   const queryClient = new QueryClient()
 
+  const [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem("bookmarks")) || [])
+
+  useEffect(() => {
+    localStorage.setItem("bookmarks", JSON.stringify(bookmarks))
+  }, [bookmarks])
+
+
   const [selectedCatagories, setSelectedCatagories] = useState(JSON.parse(localStorage.getItem("selectedCatagories") || JSON.stringify(["health", "movies", "politics"])))
 
   useEffect(() => {
@@ -27,7 +34,7 @@ function App() {
       document.documentElement.style.colorScheme = "dark"
       setIsDarkmode("dark")
     }
-    
+
   }
 
   useEffect(() => {
@@ -37,11 +44,13 @@ function App() {
 
 
 
+
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
         <Routes>
-          <Route path="/" element={<Home selectedCatagories={selectedCatagories} />} />
+          <Route path="/" element={<Home selectedCatagories={selectedCatagories} bookmarks={bookmarks} setBookmarks={setBookmarks}/>} />
           <Route path="/Settings" element={<Settings handleDarkmode={handleDarkmode} selectedCatagories={selectedCatagories} setSelectedCatagories={setSelectedCatagories} />} />
         </Routes>
         <NavigationBar />

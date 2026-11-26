@@ -5,7 +5,7 @@ import NewsCatagory from "../../Components/NewsCatagory/NewsCatagory";
 import useFetchData from "../../hooks/useFetchData";
 import NewsArticle from "../../Components/NewsArticle/NewsArticle";
 
-export default function Home({ selectedCatagories }) {
+export default function Home({ selectedCatagories, bookmarks, setBookmarks }) {
 
     const apiKey = import.meta.env.VITE_API_KEY
     const [searchURL, setSearchURL] = useState("")
@@ -29,24 +29,19 @@ export default function Home({ selectedCatagories }) {
             <Header handleSearch={handleSearch} />
             <main className="main">
                 {data ?
-                (
-                    data.response.docs.map((result) => {
-                    return (
-                        <NewsArticle articleImage={result.multimedia.default.url} articleLink={result.web_url} headingLevel={2} headingText={result.headline.main} paragraphText={result.abstract} />
-                    )
-                }))
-                :
-                selectedCatagories.map((catagory, index) => {
-                    return (
-                        <NewsCatagory apiKey={apiKey} headinglevel={index + 2} catagory={catagory} />
-                    )
-                })
+                    (
+                        data.response.docs.map((result) => {
+                            return (
+                                <NewsArticle bookmarks={bookmarks} setBookmarks={setBookmarks} articleImage={result.multimedia.default.url} articleLink={result.web_url} headingLevel={2} headingText={result.headline.main} paragraphText={result.abstract} />
+                            )
+                        }))
+                    :
+                    selectedCatagories.map((catagory, index) => {
+                        return (
+                            <NewsCatagory bookmarks={bookmarks} setBookmarks={setBookmarks} apiKey={apiKey} headinglevel={index + 2} catagory={catagory} />
+                        )
+                    })
                 }
-                {/* {selectedCatagories.map((catagory, index) => {
-                    return (
-                        <NewsCatagory apiKey={apiKey} headinglevel={index + 2} catagory={catagory} />
-                    )
-                })} */}
             </main>
         </>
     )

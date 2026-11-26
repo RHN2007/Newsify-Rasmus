@@ -4,7 +4,7 @@ import './NewsCatagory.scss'
 import NewsArticle from "../NewsArticle/NewsArticle";
 import useFetchData from "../../hooks/useFetchData";
 
-export default function NewsCatagory ({apiKey, catagory, headinglevel}) {
+export default function NewsCatagory ({bookmarks, setBookmarks, apiKey, catagory, headinglevel}) {
 
     const {isPending, error, data} = useFetchData(`https://api.nytimes.com/svc/topstories/v2/${catagory}.json?api-key=${apiKey}`) 
 
@@ -19,7 +19,7 @@ export default function NewsCatagory ({apiKey, catagory, headinglevel}) {
                 {data ?
                 (data.results.map((result) => {
                     return (
-                        <NewsArticle articleImage={result.multimedia[0].url} articleLink={result.url} headingLevel={headinglevel} headingText={result.title} paragraphText={result.abstract} />
+                        <NewsArticle bookmarks={bookmarks} setBookmarks={setBookmarks} articleImage={result.multimedia[0].url} articleLink={result.url} headingLevel={headinglevel} headingText={result.title} paragraphText={result.abstract} />
                     )
                 }))
                 :
