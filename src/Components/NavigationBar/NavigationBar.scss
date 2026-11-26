@@ -16,7 +16,7 @@
         display: flex;
         justify-content: space-around;
         z-index: 10;
-        background-color: var(--background-color);
+        background-color: light-dark(#ffffff, #1f1f1f);;
     }
 
     &__item a {
