@@ -4,9 +4,8 @@ import './NewsCatagory.scss'
 import NewsArticle from "../NewsArticle/NewsArticle";
 import useFetchData from "../../hooks/useFetchData";
 
-export default function NewsCatagory ({catagory, headinglevel}) {
+export default function NewsCatagory ({apiKey, catagory, headinglevel}) {
 
-    const apiKey = import.meta.env.VITE_API_KEY
     const {isPending, error, data} = useFetchData(`https://api.nytimes.com/svc/topstories/v2/${catagory}.json?api-key=${apiKey}`) 
 
     return (

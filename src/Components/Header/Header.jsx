@@ -1,15 +1,13 @@
 import './Header.scss'
 import LogoLink from "../LogoLink/LogoLink"
+import Search from '../Search/Search'
 
-export default function Header() {
+export default function Header({handleSearch}) {
     return (
         <>
             <header className="header">
                 <LogoLink />
-                <form className="header__search">
-                    <input type="text" placeholder="Search news" />
-                </form>
-
+                <Search handleSearch={handleSearch} />
             </header>
         </>
     )
